@@ -9,6 +9,7 @@ using TestDeviceLock.ViewModels;
 using TestDeviceLock.Views;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Xamarin.Essentials;
 
 namespace TestDeviceLock.Views
 {
@@ -27,6 +28,13 @@ namespace TestDeviceLock.Views
         {
             base.OnAppearing();
             _viewModel.OnAppearing();
+            DeviceDisplay.KeepScreenOn = true;
+        }
+
+        protected override void OnDisappearing()
+        {
+            base.OnDisappearing();
+            DeviceDisplay.KeepScreenOn = false;
         }
     }
 }
